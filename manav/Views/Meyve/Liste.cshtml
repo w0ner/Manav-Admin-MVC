@@ -1,0 +1,81 @@
+﻿@model List<Meyve>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" style="min-height: 1302.12px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Meyve Yönetimi</h1>
+                </div>
+
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Meyve Listesi</h3>
+
+                            <div class="card-tools">
+
+                                <a asp-controller="Meyve" asp-action="Ekle" class="btn btn-primary">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Meyve ID</th>
+                                        <th>Meyve Adı</th>
+                                        <th>Kategori</th>
+                                        <th>Renk</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Meyve meyve in Model)
+                                    {
+                                        <tr>
+                                            <td>@meyve.MeyveID</td>
+                                            <td>@meyve.MeyveAdı</td>
+                                            <td>@meyve.Kategori.KategoriAdı</td>
+                                            <td>@meyve.Renk.RenkAdı</td>
+
+                                        </tr>
+
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.row -->
+            <!-- /.row -->
+            <!-- /.row -->
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
